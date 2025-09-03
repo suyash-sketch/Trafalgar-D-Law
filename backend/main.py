@@ -132,7 +132,16 @@ def _main():  # pragma: no cover
     port = int(os.getenv("PORT", "8000"))
     # If running from the backend directory, use local module path for reload
     cwd_name = os.path.basename(os.getcwd()).lower()
-    module_str = "main:app" if cwd_name == "backend" else "backend.main:app"
+    if cwd_name == "backend":
+        module_str = "main:app"
+    else:
+        # When running from root directory, we need to add the current directory to Python path
+        import sys
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        parent_dir = os.path.dirname(current_dir)
+        if parent_dir not in sys.path:
+            sys.path.insert(0, parent_dir)
+        module_str = "backend.main:app"
     uvicorn.run(module_str, host="0.0.0.0", port=port, reload=True)
 
 

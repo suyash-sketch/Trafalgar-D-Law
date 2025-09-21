@@ -18,9 +18,9 @@ else:
 
 
 MODEL_PATHS = [
-    os.path.join(os.path.dirname(__file__), "model.h5"),
+    os.path.join(os.path.dirname(__file__), "mnist_cnn_final_acc_99.69percent.h5"),
     os.path.join(os.path.dirname(__file__), "model.keras"),
-    os.path.join(os.path.dirname(__file__), "..", "model.h5"),
+    os.path.join(os.path.dirname(__file__), "..", "mnist_cnn_final_acc_99.69percent.h5"),
     os.path.join(os.path.dirname(__file__), "..", "model.keras"),
 ]
 
@@ -54,7 +54,7 @@ def get_model():
             "\n"
             "    import os\n"
             "    os.makedirs('backend', exist_ok=True)\n"
-            "    model.save('backend/model.h5')\n"
+            "    model.save('backend/mnist_cnn_final_acc_99.69percent.h5')\n"
         )
 
     _model = tf.keras.models.load_model(model_path)

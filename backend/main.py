@@ -19,23 +19,15 @@ else:
 
 MODEL_PATHS = [
     # Prioritize the digit-7-fixed model with 99.74% overall accuracy and 99.61% digit 7 accuracy
-    os.path.join(os.path.dirname(__file__), "mnist_cnn_final_acc_99.74percent_digit7_fixed.h5"),
+    os.path.join(os.path.dirname(__file__), "mnist_cnn_final_acc_99.74percent.h5"),
+    
     # Fallback models
-    os.path.join(os.path.dirname(__file__), "mnist_cnn_final_acc_99.69percent.h5"),
     os.path.join(os.path.dirname(__file__), "mnist_cnn_final_acc_99.70percent.h5"),
-    os.path.join(os.path.dirname(__file__), "model.h5"),
-    os.path.join(os.path.dirname(__file__), "modelgpu.h5"),
-    os.path.join(os.path.dirname(__file__), "sarthakmodel.h5"),
-    os.path.join(os.path.dirname(__file__), "model.keras"),
+    
     # Allow parent directory variants just in case
-
     os.path.join(os.path.dirname(__file__), "..", "mnist_cnn_final_acc_99.70percent.h5"),
-    os.path.join(os.path.dirname(__file__), "..", "model.h5"),
-    os.path.join(os.path.dirname(__file__), "..", "modelgpu.h5"),
-    os.path.join(os.path.dirname(__file__), "..", "sarthakmodel.h5"),
-    os.path.join(os.path.dirname(__file__), "..", "model.keras"),
+    os.path.join(os.path.dirname(__file__), "..", "mnist_cnn_final_acc_99.74percent.h5")
 ]
-
 
 def _find_model_path() -> Optional[str]:
     for p in MODEL_PATHS:
